@@ -1,58 +1,58 @@
 'use strict';
 
-//Open hours
-var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
-//RNGESUS//
-function getRandomInt(customerMin, customerMax) {
-    var randomNumber = Math.random() * (customerMax - customerMin) + customerMin;
-    return Math.floor(randomNumber);
-}
-console.log(getRandomInt(23,65));
+// //Open hours
+// var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+// //RNGESUS//
+// function getRandomInt(customerMin, customerMax) {
+//     var randomNumber = Math.random() * (customerMax - customerMin) + customerMin;
+//     return Math.floor(randomNumber);
+// }
+// console.log(getRandomInt(23,65));
 
-//store object//
-var seattleStore = {
-  name: 'Seattle',
-  customerMin: 23,
-  customerMax: 65,
-  customerAverage: 6.3,
-  salesPerHour: [],
+// //store object//
+// var seattleStore = {
+//   name: 'Seattle',
+//   customerMin: 23,
+//   customerMax: 65,
+//   customerAverage: 6.3,
+//   salesPerHour: [],
 
-  getHourlySales: function(){
+//   getHourlySales: function(){
 
-    for (var i=0; i<hours.length; i++){
+//     for (var i=0; i<hours.length; i++){
 
-      var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
-      var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage); 
-      this.salesPerHour.push(totalCookiesPerHour)
-    }
-    console.log(this.salesPerHour);
-  },
-  render: function(){
-    this.getHourlySales();
-    var storesArticle = document.getElementById("stores");
-    var cityUL = document.createElement('ul');
-    var cityHeader = document.createElement('h1');
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage); 
+//       this.salesPerHour.push(totalCookiesPerHour)
+//     }
+//     console.log(this.salesPerHour);
+//   },
+//   render: function(){
+//     this.getHourlySales();
+//     var storesArticle = document.getElementById("stores");
+//     var cityUL = document.createElement('ul');
+//     var cityHeader = document.createElement('h1');
 
-    cityHeader.textContent = this.name;
-    cityUL.appendChild(cityHeader);
+//     cityHeader.textContent = this.name;
+//     cityUL.appendChild(cityHeader);
     
-    for(var i=0; i < hours.length; i++){
-      var hourLI = document.createElement('li');
-      hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
-      cityUL.appendChild(hourLI);
-    }
+//     for(var i=0; i < hours.length; i++){
+//       var hourLI = document.createElement('li');
+//       hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
+//       cityUL.appendChild(hourLI);
+//     }
 
-    var total = 0;
-    for(var i =0; i< this.salesPerHour.length; i++){
-      total += this.salesPerHour[i];
-    }
-    var totalLI = document.createElement('li');
-    totalLI.textContent = `Total ${total} cookies`;
-    cityUL.appendChild(totalLI);
+//     var total = 0;
+//     for(var i =0; i< this.salesPerHour.length; i++){
+//       total += this.salesPerHour[i];
+//     }
+//     var totalLI = document.createElement('li');
+//     totalLI.textContent = `Total ${total} cookies`;
+//     cityUL.appendChild(totalLI);
 
-    storesArticle.appendChild(cityUL);
-  }
-}
+//     storesArticle.appendChild(cityUL);
+//   }
+// }
 
 var myTable = document.getElementById('myTable');
 var coffeeArray = ["Latte", "Mocha", "Americano", "Cappiccino"];
@@ -79,7 +79,7 @@ for(var i = 0; i < 4; i++){
 
 myTable.appendChild(coffeeTable);
 
-seattleStore.render();
+// seattleStore.render();
 
 
 function Coffee(size, type, price){

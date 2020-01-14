@@ -6,28 +6,26 @@ function getRandomInt(minCust, maxCust) {
   var randomNumber = Math.random() * (maxCust - minCust) + minCust;
   return Math.floor(randomNumber);
 }
+// CONSTRUCTOR FUNCTION
 
-// SEATTLE
-
-var seattle = {
-  minCust : 23,
-  maxCust : 65,
-  avgSales : 6.3,
-  salesPerHour : [],
-
-  getHourlysales : function(){
+function Store(minCust, maxCust, avgSales, salesPerHour, location){
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSales = avgSales;
+  this.salesPerHour = [];
+  this.location = document.getElementById(location);
+  this.getHourlysales = function(){
     for (var i = 0; i < hoursOP.length; i++){
       var customersPerHour = getRandomInt(this.minCust, this.maxCust);
       var totalCookiesPerHour = Math.floor(customersPerHour * this.avgSales);
       this.salesPerHour.push(totalCookiesPerHour);
     }
-  },
+  };
 
-  render : function(){
+  this.render = function(){
     this.getHourlysales();
-    var seattleArticle = document.getElementById('seattle');
+    // var seattleArticle = document.getElementById('seattle);
     var numbersUL = document.createElement('ul');
-
     for (var i = 0; i < hoursOP.length; i++){
       var newTag = document.createElement('li');
       newTag.textContent = `${hoursOP[i]} = ${this.salesPerHour[i]} cookies.`;
@@ -40,12 +38,64 @@ var seattle = {
     var totali = document.createElement('li');
     totali.textContent = `Total: ${total} cookies.`;
     numbersUL.appendChild(totali);
+    this.location.appendChild(numbersUL);
+  };
+}
 
-    seattleArticle.appendChild(numbersUL);
-  }
-};
-
+var seattle = new Store(23, 65,6.3,[], 'seattle');
 seattle.render();
+
+var tokyo = new Store(3,24,1.2,[], 'tokyo');
+tokyo.render();
+
+var dubai = new Store(11,38,3.7,[], 'dubai');
+dubai.render();
+
+var paris = new Store(20,38,2.3,[], 'paris');
+paris.render();
+
+var lima = new Store(2,16,4.6,[], 'lima');
+lima.render();
+
+// SEATTLE
+
+// var seattle = {
+//   minCust : 23,
+//   maxCust : 65,
+//   avgSales : 6.3,
+//   salesPerHour : [],
+//   getHourlysales : function(){
+//     for (var i = 0; i < hoursOP.length; i++){
+//       var customersPerHour = getRandomInt(this.minCust, this.maxCust);
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.avgSales);
+//       this.salesPerHour.push(totalCookiesPerHour);
+//     }
+
+//   },
+
+//   render : function(){
+//     this.getHourlysales();
+//     var seattleArticle = document.getElementById('seattle');
+//     var numbersUL = document.createElement('ul');
+
+//     for (var i = 0; i < hoursOP.length; i++){
+//       var newTag = document.createElement('li');
+//       newTag.textContent = `${hoursOP[i]} = ${this.salesPerHour[i]} cookies.`;
+//       numbersUL.appendChild(newTag);
+//     }
+//     var total = 0;
+//     for (i = 0; i < this.salesPerHour.length; i++){
+//       total += this.salesPerHour[i];
+//     }
+//     var totali = document.createElement('li');
+//     totali.textContent = `Total: ${total} cookies.`;
+//     numbersUL.appendChild(totali);
+
+//     seattleArticle.appendChild(numbersUL);
+//   }
+// };
+
+// seattle.render();
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
