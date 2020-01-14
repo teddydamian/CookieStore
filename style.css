@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
+
+
+main{
+    opacity: 0.3;
+    background-size: 150px;
+    background-repeat: repeat;
+    position: absolute;
+    z-index: 0;
+}
+
+body #titleSeattle{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 100px;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+}
+body #seattle{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 100px;
+    z-index: 1;
+    position: absolute;
+    top: 90px;
+}
+
+body #titleTokyo{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 350px;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+}
+body #tokyo{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 350px;
+    z-index: 1;
+    position: absolute;
+    top: 90px;
+}
+
+body #titleDubai{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 600px;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+}
+body #dubai{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 600px;
+    z-index: 1;
+    position: absolute;
+    top: 90px;
+}
+body #titleParis{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 850px;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+}
+body #paris{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 850px;
+    z-index: 1;
+    position: absolute;
+    top: 90px;
+}
+body #titleLima{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 1100px;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+}
+body #lima{
+    font-family: 'Lobster Two', cursive;
+    position: relative;
+    left: 1100px;
+    z-index: 1;
+    position: absolute;
+    top: 90px;
+}
+
