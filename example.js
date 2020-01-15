@@ -82,25 +82,25 @@ myTable.appendChild(coffeeTable);
 // seattleStore.render();
 
 
-function Coffee(size, type, price){
-    // set our properties using this
-    this.size = size;
-    this.coffeeType = type;
-    this.potato = price;
-    this.temperature = 180;
-    this.ingredients = [];
-    this.generateHourSales = function(){
-        console.log('hello');
-    }
-}
+// function Coffee(size, type, price){
+//     // set our properties using this
+//     this.size = size;
+//     this.coffeeType = type;
+//     this.potato = price;
+//     this.temperature = 180;
+//     this.ingredients = [];
+//     this.generateHourSales = function(){
+//         console.log('hello');
+//     }
+// }
 
-Coffee.prototype.render = function(){
-    // put rendering logic here
-}
-// to Create an object using a constructor function
-// we INSTANTIATE the object using the construction function
+// Coffee.prototype.render = function(){
+//     // put rendering logic here
+// }
+// // to Create an object using a constructor function
+// // we INSTANTIATE the object using the construction function
 
-var amandasLatte = new Coffee("Large", "latte", 5);
+// var amandasLatte = new Coffee("Large", "latte", 5);
 
-console.log(amandasLatte.size);
-amandasLatte.render();
+// console.log(amandasLatte.size);
+// amandasLatte.render();
