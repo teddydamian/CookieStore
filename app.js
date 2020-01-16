@@ -1,6 +1,6 @@
 'use strict';
 
-var hours = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+var hours = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var allLocations = [];
 
@@ -15,12 +15,23 @@ function getRandomInt(minCust, maxCust) {
 
 //Looping for top row::::::::::::::::;
 var toprow = document.createElement('tr');
+
 for (var i = 0; i < hours.length; i++){
   var rowtd = document.createElement('td');
   rowtd.textContent = hours[i];
   toprow.appendChild(rowtd);
 }
 myTable.appendChild(toprow);
+
+
+
+
+var totalB = document.createElement('td');
+totalB.textContent = 'Total';
+toprow.appendChild(totalB);
+
+
+
 
 
 
@@ -32,6 +43,7 @@ function Store(minCust, maxCust, avgSales, salesPerHour, name){
   this.avgSales = avgSales;
   this.salesPerHour = [];
   this.name = name;
+  this.sum = 0;
 
   //SalesPerHour Array::::::::::::::::
 
@@ -42,6 +54,12 @@ function Store(minCust, maxCust, avgSales, salesPerHour, name){
       this.salesPerHour.push(totalCookiesPerHour);
     }
   };
+
+  this.getSum = function(){ //SIDE TOTALLL::::::
+    for (var i = 0; i < this.salesPerHour.length; i++) {
+      this.sum += this.salesPerHour[i];
+    }
+  };
 }
 
 var seattle = new Store(23, 65,6.3,[], 'seattle');
@@ -50,16 +68,47 @@ var dubai = new Store(11,38,3.7,[], 'dubai');
 var paris = new Store(20,38,2.3,[], 'paris');
 var lima = new Store(2,16,4.6,[], 'lima');
 
-//Rendering:::::::::::::::::::;
 allLocations.push(seattle);
 allLocations.push(tokyo);
 allLocations.push(dubai);
 allLocations.push(paris);
 allLocations.push(lima);
 
+/////Total of sales in 1 hour by all locations
+
+function bottomTotal(){
+
+  var botRow = document.createElement('tr');
+
+  var botTd = document.createElement('td');
+  botTd.textContent = 'Total';
+  botRow.appendChild(botTd);
+
+  var hourTotal = 0;
+  var grandTotal = 0;
+
+  for(var i = 0; i < hours.length-1; i++){
+    hourTotal = 0;
+
+    for(var j = 0; j < allLocations.length; j++){
+      hourTotal = hourTotal + allLocations[j].salesPerHour[i];
+      grandTotal = grandTotal + allLocations[j].salesPerHour[i];
+    }
+
+    var botTd1=document.createElement('td');
+    botTd1.textContent = hourTotal;
+    botRow.appendChild(botTd1);
+  }
+  var allStoreTotal=document.createElement('td');
+  allStoreTotal.textContent = grandTotal;
+  botRow.appendChild(allStoreTotal);
+  myTable.appendChild(botRow);
+}
+
+//Render-------------------------------------------------------------------------------------------------------------
 Store.prototype.render = function(){
   this.getHourlysales();
-
+  this.getSum();
   var createRow = document.createElement('tr');
 
   var createRowTd = document.createElement('td');
@@ -67,23 +116,34 @@ Store.prototype.render = function(){
   createRow.appendChild(createRowTd);
 
   // Looping for locations-salesperhour::::::::::::
-  for (var j = 0; j < hours.length -2; j++){
+  for (var j = 0; j < hours.length -1; j++){
     var rowtdsales = document.createElement('td');
     rowtdsales.textContent = this.salesPerHour[j];
     createRow.appendChild(rowtdsales);
   }
   myTable.appendChild(createRow);
+
+  //Side Total-----------------------------------------------------------------------------------------------------
+  var sumtd = document.createElement('td');
+  sumtd.textContent = this.sum;
+  createRow.appendChild(sumtd);
 };
+//---------------------------------------------------------------------------------------------------------------
 
 
 
-//Loop to call alllocations.render()
+//Loop to call alllocations.render()----------------------------------------------------------------------
 function renderTable(){
   for (var i = 0; i < allLocations.length ; i++){
     allLocations[i].render();
-  };
+  }
 }
+//---------------------------------------------------------------------------------------------------------
+
+
+
 renderTable();
+bottomTotal();
 
 
 // locationTable.appendChild(headerRow);
