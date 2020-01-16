@@ -40,11 +40,9 @@ function Store(minCust, maxCust, avgSales, salesPerHour, name){
       var customersPerHour = getRandomInt(this.minCust, this.maxCust);
       var totalCookiesPerHour = Math.floor(customersPerHour * this.avgSales);
       this.salesPerHour.push(totalCookiesPerHour);
-    };
-  }
+    }
+  };
 }
-
-
 
 var seattle = new Store(23, 65,6.3,[], 'seattle');
 var tokyo = new Store(3,24,1.2,[], 'tokyo');
@@ -53,42 +51,38 @@ var paris = new Store(20,38,2.3,[], 'paris');
 var lima = new Store(2,16,4.6,[], 'lima');
 
 //Rendering:::::::::::::::::::;
-
-Store.prototype.render = function(){
-  this.getHourlysales();
-
-  // //Looping for locations::::::::::
-  // for (var i = 0; i < allLocations.length; i++){
-  //   var rowlocation = document.createElement('tr');
-  //   var locationtd = document.createElement('td');
-  //   locationtd.textContent = allLocations[i].name;
-  //   rowlocation.appendChild(locationtd);
-  var createRow = document.createElement('tr');
-  var createRowTd = document.createElement('td')
-  createRow.textContent = this.Store.name
-
-    // Looping for locations-salesperhour::::::::::::
-    for (var j = 0; j < hours.length -2; j++){
-      var rowtdsales = document.createElement('td');
-      rowtdsales.textContent = this.salesPerHour[j];
-      rowlocation.appendChild(rowtdsales);
-    }
-    myTable.appendChild(rowlocation);
-  }
-
 allLocations.push(seattle);
 allLocations.push(tokyo);
 allLocations.push(dubai);
 allLocations.push(paris);
 allLocations.push(lima);
 
+Store.prototype.render = function(){
+  this.getHourlysales();
+
+  var createRow = document.createElement('tr');
+
+  var createRowTd = document.createElement('td');
+  createRowTd.textContent = this.name;
+  createRow.appendChild(createRowTd);
+
+  // Looping for locations-salesperhour::::::::::::
+  for (var j = 0; j < hours.length -2; j++){
+    var rowtdsales = document.createElement('td');
+    rowtdsales.textContent = this.salesPerHour[j];
+    createRow.appendChild(rowtdsales);
+  }
+  myTable.appendChild(createRow);
+};
+
+
 
 //Loop to call alllocations.render()
 function renderTable(){
-for (var i = 0; i < allLocations.length ; i++){
-  allLocations[i].render()
-};
-
+  for (var i = 0; i < allLocations.length ; i++){
+    allLocations[i].render();
+  };
+}
 renderTable();
 
 
@@ -306,7 +300,4 @@ renderTable();
 //   totalLima.textContent = `Total: ${totalLima1} cookies.`;
 //   numbersUlLima.appendChild(totalLima);
 // }
-// limaArticle.appendChild(numbersUlLima);
-
-
-
+// limaArticle.appendChild(numbersUlLima)
