@@ -23,17 +23,9 @@ for (var i = 0; i < hours.length; i++){
 }
 myTable.appendChild(toprow);
 
-
-
-
 var totalB = document.createElement('td');
 totalB.textContent = 'Total';
 toprow.appendChild(totalB);
-
-
-
-
-
 
 // CONSTRUCTOR FUNCTION
 
@@ -139,8 +131,34 @@ function renderTable(){
   }
 }
 //---------------------------------------------------------------------------------------------------------
+//Lab09
+
+var storeForm = document.getElementById('add-store');
+
+storeForm.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  var name = event.target.name.value;
+  var minCust = parseInt(event.target.minCustomers.value);
+  var maxCust = parseInt(event.target.maxCustomers.value);
+  var avgSales = parseInt(event.target.averageSales.value);
+
+  event.target.name.value = null;
+
+  var newStore = new Store(minCust, maxCust, avgSales, [], name);
+
+  console.log(newStore);
+  newStore.render();
+}
 
 
+
+
+
+
+//-------------
 
 renderTable();
 bottomTotal();
