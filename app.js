@@ -14,19 +14,20 @@ function getRandomInt(minCust, maxCust) {
 }
 
 //Looping for top row::::::::::::::::;
-var toprow = document.createElement('tr');
+function renderHeader(){
+  var toprow = document.createElement('tr');
 
-for (var i = 0; i < hours.length; i++){
-  var rowtd = document.createElement('td');
-  rowtd.textContent = hours[i];
-  toprow.appendChild(rowtd);
+  for (var i = 0; i < hours.length; i++){
+    var rowtd = document.createElement('th');
+    rowtd.textContent = hours[i];
+    toprow.appendChild(rowtd);
+  }
+  myTable.appendChild(toprow);
+
+  var totalB = document.createElement('th');
+  totalB.textContent = 'Total';
+  toprow.appendChild(totalB);
 }
-myTable.appendChild(toprow);
-
-var totalB = document.createElement('td');
-totalB.textContent = 'Total';
-toprow.appendChild(totalB);
-
 // CONSTRUCTOR FUNCTION
 
 function Store(minCust, maxCust, avgSales, name){
@@ -54,11 +55,11 @@ function Store(minCust, maxCust, avgSales, name){
   };
 }
 
-var seattle = new Store(23, 65,6.3, 'seattle');
-var tokyo = new Store(3,24,1.2, 'tokyo');
-var dubai = new Store(11,38,3.7, 'dubai');
-var paris = new Store(20,38,2.3, 'paris');
-var lima = new Store(2,16,4.6, 'lima');
+var seattle = new Store(23, 65,6.3, 'Seattle');
+var tokyo = new Store(3,24,1.2, 'Tokyo');
+var dubai = new Store(11,38,3.7, 'Dubai');
+var paris = new Store(20,38,2.3, 'Paris');
+var lima = new Store(2,16,4.6, 'Lima');
 
 allLocations.push(seattle);
 allLocations.push(tokyo);
@@ -68,11 +69,12 @@ allLocations.push(lima);
 
 /////Total of sales in 1 hour by all locations
 
+
 function bottomTotal(){
 
   var botRow = document.createElement('tr');
 
-  var botTd = document.createElement('td');
+  var botTd = document.createElement('th');
   botTd.textContent = 'Total';
   botRow.appendChild(botTd);
 
@@ -127,9 +129,11 @@ Store.prototype.render = function(){
 //Loop to call alllocations.render()----------------------------------------------------------------------
 function renderTable(){
   myTable.innerHTML = null;
+  renderHeader();
   for (var i = 0; i < allLocations.length ; i++){
     allLocations[i].render();
   }
+  bottomTotal();
 }
 //---------------------------------------------------------------------------------------------------------
 //Lab09
@@ -159,4 +163,3 @@ function handleSubmit(event) {
 //-------------
 
 renderTable();
-

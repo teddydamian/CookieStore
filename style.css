@@ -1,7 +1,89 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 
 
+html{
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    
+}
+
+body{
+    width: 960px;
+    background-color:#3F2A3F;
+}
+
+h2{
+    font-family: 'Questrial', sans-serif;
+    font-size: 50px;
+    color: #FFE4F3;
+}
 p{
     font-family: 'Lobster Two', cursive;
+    font-size: 30px;
+    line-height: 35px;
+    color: #FF92C2;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    padding-top: 50px;
+    color: #FFE4F3;
+}
+ul{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: #FF92C2;
 
 }
+#chinook {
+    position: absolute;
+    height: 100px;
+    top :150px;
+    right:150px
+}
+
+h3{
+    font-size: 40px;
+    text-decoration: underline;
+    color: #FFE4F3;
+}
+
+#cutter {
+    position: absolute;
+    height: 150px;
+    top :150px;
+    left:150px
+}
+
+#family{
+    position: absolute;
+    height: 200px;
+    top :500px;
+    left:100px;
+    opacity:.8;
+}
+
+
+#cookie{
+    position: absolute;
+    height: 200px;
+    top :900px;
+    right:150px;
+}
+
+#salmon{
+    position: absolute;
+    height: 120px;
+    top :900px;
+    left:70px;
+}
+
+#shirt{
+    position: absolute;
+    height: 250px;
+    top :500px;
+    right:150px;
+}
+

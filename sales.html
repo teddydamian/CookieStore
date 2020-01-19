@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <style>
-   /* body{
-       background: url(./02-cookie.png) repeat-x;
-       
-   } */
-        
-        </style>
+        <link rel="stylesheet" type="text/css" href="sales.css">
     </head>
     <body>
-        <form id="add-store">
-            <fieldset>
-              <legend>Store Location</legend>
-              <label>Location</label>
-              <input name="name" type="text">
+        <image>
+            <img src="fish/Cafish.jpg">
+            <form id="add-store">
+                <fieldset>
+                  <legend>Store Location</legend>
+                  <label>Location:</label>
+                  <input name="name" type="text">
+                    <br/>         <br/>
+                  <label>Min Cust:</label>
+                  <input name="minCustomers" type="text">
+                  <br/>         <br/>
+                  <label>Max Cust:</label>
+                  <input name="maxCustomers" type="text">
+                  <br/>         <br/>
+                  <label>Average Sales:</label>
+                  <input name="averageSales" type="text" step="0.1">
+                  <br/>         <br/>
+                </fieldset>
+                <button type="submit">Add store</button>
+              </form>
+              <br/>
+    
+            <table border="3" border>
+                <tbody id="myTable"></tbody>
+            </table>
+        </image>
+        <footer>
 
-              <label>Min Cust</label>
-              <input name="minCustomers" type="text">
-
-              <label>Max Cust</label>
-              <input name="maxCustomers" type="text">
-
-              <label>Average Sales</label>
-              <input name="averageSales" type="text" step="0.1">
-
-            </fieldset>
-            <button type="submit">Add store</button>
-          </form>
-          <br/>
-
-        <table>
-            <tbody id="myTable"></tbody>
-        </table>
-        <!-- <img id="cookie" src="02-cookie.png"> -->
-        <!-- <img src="03-blueberry cheesecake.png"> -->
-
+</footer>
     <script src="app.js"></script>
 </body>
 </html>
