@@ -1,0 +1,45 @@
+html{
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+}
+
+table {
+    width: 960px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  th {
+    height: 30px;
+
+}
+
+button {
+    width: 150px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 2px solid rgb(112, 21, 21);
+    font-size: 16px;
+    position: absolute;
+    top: 31%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+img{
+    width: 960px;
+    opacity: .4;
+    position: relative;
+    text-align: center;
+}
+
+fieldset{
+    width: 800px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
