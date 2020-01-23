@@ -121,6 +121,7 @@ Store.prototype.render = function(){
   var sumtd = document.createElement('td');
   sumtd.textContent = this.sum;
   createRow.appendChild(sumtd);
+
 };
 //---------------------------------------------------------------------------------------------------------------
 
@@ -155,11 +156,14 @@ function handleSubmit(event) {
   var newStore = new Store(minCust, maxCust, avgSales, name);
 
   console.log(newStore);
-  allLocations.push(newStore);
+  myTable.innerHTML = null;
   newStore.render();
-  bottomTotal();
+  allLocations.push(newStore);
+  renderTable();
+
 }
 
 //-------------
 
 renderTable();
+
